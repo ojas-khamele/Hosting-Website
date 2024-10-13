@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            drawGenderChart();
+            drawFIDEChart();
+        }
+
+        // Draw the Gender Pie Chart
+        function drawGenderChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Gender', 'Count'],
+                ['Male', 18],
+                ['Female', 4]
+            ]);
+
+            var options = {
+                title: 'Gender Distribution',
+                pieHole: 0.4,
+                width: 500,
+                height: 400
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_gender'));
+            chart.draw(data, options);
+        }
+
+        // Draw the FIDE Rating Bar Chart
+        function drawFIDEChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Name', 'FIDE Rating'],
+                ['Ojas Khamele', 1719],
+                ['Jashwanth Kumar', 0],
+                ['Rishikesh Gaikwad', 1538],
+                ['Arnav Gupta', 0],
+                ['Aman Chaurasia', 0],
+                ['Vedang Gotmare', 0],
+                ['Rishabh Kumar', 0],
+                ['Bharti Dhote', 0],
+                ['Vishal Mangnale', 0],
+                ['Sachin Singh', 0],
+                ['Yash Rajesh Shelke', 0],
+                ['Sairaj Katke', 0],
+                ['Shreya Dhote', 0],
+                ['Nishaad Chaudhari', 0],
+                ['Ananth Prasanth I S', 0],
+                ['Sumedh Ramteke', 1660],
+                ['Jayalekshmi Jayasree', 0],
+                ['Swastik', 0],
+                ['Shreya Mishra', 0],
+                ['Onkar Wankhede', 0],
+                ['Angad Shukla', 0],
+                ['Akshay Dorlikar', 0]
+            ]);
+
+            var options = {
+                title: 'FIDE Ratings of Participants',
+                hAxis: {title: 'Name'},
+                vAxis: {title: 'FIDE Rating'},
+                width: 800,
+                height: 600,
+                bar: {groupWidth: "75%"}
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('barchart_fide'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+    <h1>Survey Results</h1>
+
+    <!-- Gender Pie Chart -->
+    <div id="piechart_gender" style="width: 500px; height: 400px;"></div>
+    
+    <!-- FIDE Rating Bar Chart -->
+    <div id="barchart_fide" style="width: 800px; height: 600px;"></div>
+    
+</body>
+</html>
